@@ -1,0 +1,83 @@
+from pathlib import Path
+
+content = """# ==============================
+# Python / Backend
+# ==============================
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and runtime files
+*.log
+*.pid
+*.seed
+
+# ==============================
+# Model checkpoints / generated weights
+# ==============================
+# Keep large trained weights out of Git; use Git LFS or a release if needed.
+*.pth
+*.pt
+*.ckpt
+*.onnx
+
+# ==============================
+# Frontend / Node / Vite
+# ==============================
+node_modules/
+**/node_modules/
+dist/
+build/
+.vite/
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ==============================
+# Datasets and generated data
+# ==============================
+# Do not commit the SemanticPOSS raw sequence data.
+# Keep scripts such as read_data.py tracked.
+SemanticPOSS_dataset/dataset/sequences/
+**/dataset/sequences/
+
+# Common generated data / caches
+data/raw/
+data/processed/
+*.cache
+
+# ==============================
+# OS / Editor
+# ==============================
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+"""
+
+path = Path("/mnt/data/.gitignore")
+path.write_text(content, encoding="utf-8")
+print(f"Created: {path}")
